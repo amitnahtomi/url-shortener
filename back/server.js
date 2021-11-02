@@ -11,7 +11,7 @@ const errorHandler = require('./errorHandler');
 
 //app.use('/', validUrl);
 app.post('/', (req, res, next)=>{
-    let fileId = "1";//uuidv4();
+    let fileId = uuidv4();
     let prevUrl = req.body.url;
     let urlData = {prevUrl: prevUrl, shortUrl: `http://localhost:${port}/${fileId}`};
     fs.writeFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${fileId}.json`, JSON.stringify(urlData));

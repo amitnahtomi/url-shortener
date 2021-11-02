@@ -9,6 +9,5 @@ async function getShortUrl() {
         },
         body: JSON.stringify({"url": longUrl})
     })
-    console.log(await res.data);
-    //document.getElementById("shortUrl").innerText = res.data;
+    document.getElementById("shortUrl").innerText = await res.json();
 }
