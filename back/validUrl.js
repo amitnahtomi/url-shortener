@@ -1,11 +1,8 @@
-async function validUrl(req, res, next) {
-    try {
-        
+const valid = require('valid-url');
+function validUrl(req, res, next) {
+    if(valid.isUri(`${req.body.url}`)){
         next();
     }
-    catch {
         next(401);
-    }
 }
-
 module.exports = validUrl;

@@ -5,10 +5,10 @@ const cors = require('cors');
 const fs = require('fs');
 app.use(express.json());
 app.use(cors());
-//const validUrl = require('./validUrl.js');
+const validUrl = require('./validUrl.js');
 const errorHandler = require('./errorHandler');
 
-//app.use('/', validUrl);
+app.use('/', validUrl);
 app.post('/', (req, res, next)=>{
     let fileId = fs.readdirSync("C:/Users/amitn/cyber4s/url-shortener/back/db").length;
     let prevUrl = req.body.url;
