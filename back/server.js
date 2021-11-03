@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 app.use(express.json());
 app.use(cors());
@@ -26,7 +25,7 @@ app.post('/', (req, res, next)=>{
         res.end();
     }
     else {
-    let urlData = new Db(prevUrl, `http://localhost:${port}/${fileId}`)// {prevUrl: prevUrl, shortUrl: `http://localhost:${port}/${fileId}`};
+    let urlData = new Db(prevUrl, `http://localhost:${port}/${fileId}`);
     fs.writeFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${fileId}.json`, JSON.stringify(urlData));
     console.log(prevUrl);
     res.json(urlData.shortUrl);
