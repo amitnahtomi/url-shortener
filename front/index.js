@@ -1,7 +1,7 @@
 document.getElementById("submit").addEventListener("click", getShortUrl);
 async function getShortUrl() {
     let longUrl = document.getElementById("longUrl").value
-    const res = await fetch("http://localhost:3000/", {
+    const res = await fetch("http://localhost:3000/short/", {
         method: "POST",
         headers:{
             Accept: "application/json",
