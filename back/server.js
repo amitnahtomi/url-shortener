@@ -24,7 +24,7 @@ app.use('/:id', (req, res, next)=>{
         }
     }
     target.sumReq++;
-    target.lastReq = (new Date).toString();
+    target.lastReq = (new Date).toString().slice(0, 25);
     fs.writeFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${id}.json`, JSON.stringify(target));
     try {
     res.redirect(target.prevUrl);
