@@ -5,10 +5,11 @@ const cors = require('cors');
 const fs = require('fs');
 app.use(express.json());
 app.use(cors());
-const validUrl = require('./validUrl.js');
+//const validUrl = require('./validUrl.js');
+const statisticRouter = require('./statisticRouter');
 const errorHandler = require('./errorHandler');
 
-app.use('/', validUrl);
+//app.use('/', validUrl);
 app.post('/', (req, res, next)=>{
     let fileId = fs.readdirSync("C:/Users/amitn/cyber4s/url-shortener/back/db").length;
     let prevUrl = req.body.url;
@@ -32,6 +33,7 @@ app.post('/', (req, res, next)=>{
     res.end();
     }
 });
+app.use('/api', statisticRouter);
 app.use('/:id', (req, res, next)=>{
     let id = req.params.id;
     let db = fs.readdirSync("C:/Users/amitn/cyber4s/url-shortener/back/db");
