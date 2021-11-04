@@ -22,7 +22,6 @@ router.post('/', (req, res, next)=>{
     else {
     let urlData = new Db(prevUrl, `http://localhost:${port}/${fileId}`);
     fs.writeFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${fileId}.json`, JSON.stringify(urlData));
-    console.log(prevUrl);
     res.json(urlData.shortUrl);
     res.end();
     }
