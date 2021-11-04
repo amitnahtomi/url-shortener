@@ -19,6 +19,11 @@ document.getElementById("statistic").addEventListener("click", async ()=>{
     const res = await fetch(`http://localhost:3000/api/${id}`, {method: "GET"});
         console.log(id);
        let result = await res.json();
+       if(result.lastVisited !== undefined){
        document.getElementById("urlStats").innerText = `this link was visited ${result.timesVisited} times and was last visited on ${result.lastVisited}`;
+       }
+       else {
+        document.getElementById("urlStats").innerText = `this link was visited ${result.timesVisited} times`
+       }
     console.log(result);
 })

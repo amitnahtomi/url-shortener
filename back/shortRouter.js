@@ -33,7 +33,7 @@ class Db {
         this.prevUrl = prevUrl,
         this.shortUrl = shortUrl,
         this.sumReq = 0;
-        this.lastReq = Date.now();
+        this.lastReq = undefined;
     }
     linkRequested() {
         this.sumReq++;
