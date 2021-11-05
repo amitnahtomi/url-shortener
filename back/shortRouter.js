@@ -36,7 +36,7 @@ class Db {
     }
     linkRequested() {
         this.sumReq++;
-        this.lastReq = Date.now();
+        this.lastReq = (new Date).toString().slice(0, 25);
     }
 }
 

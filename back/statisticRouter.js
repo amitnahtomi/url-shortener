@@ -4,7 +4,6 @@ router.use(express.json());
 const fs = require('fs');
 
 router.get('/:id', (req, res, next)=>{
-    console.log("df");
     let id = req.params.id;
     let db = fs.readdirSync("C:/Users/amitn/cyber4s/url-shortener/back/db");
     let target;
