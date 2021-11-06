@@ -15,6 +15,10 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
+    devServer: {
+      open: true,
+      host: "localhost",
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: "./front/index.html",

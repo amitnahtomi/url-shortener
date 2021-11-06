@@ -1,3 +1,4 @@
+import './style.css'
 document.getElementById("submit").addEventListener("click", getShortUrl);
 async function getShortUrl() {
     let longUrl = document.getElementById("longUrl").value
