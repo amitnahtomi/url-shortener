@@ -11,8 +11,12 @@ async function getShortUrl() {
         body: JSON.stringify({"url": longUrl})
     })
     let result = await res.json();
+    if(result !== "url not valid"){
     document.getElementById("shortUrl").innerText = result;
     document.getElementById("shortUrl").href = result;
+    return;
+    }
+    document.getElementById("shortUrl").innerText = result;
 }
 
 document.getElementById("statistic").addEventListener("click", async ()=>{
