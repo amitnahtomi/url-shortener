@@ -5,13 +5,13 @@ const fs = require('fs');
 const port = 3000;
 
 router.post('/', (req, res, next)=>{
-    let fileId = fs.readdirSync("C:/Users/amitn/cyber4s/url-shortener/back/db").length;
+    let fileId = fs.readdirSync("./back/db/").length;
     let prevUrl = req.body.url;
-    let db = fs.readdirSync("C:/Users/amitn/cyber4s/url-shortener/back/db");
+    let db = fs.readdirSync("./back/db/");
     let target;
     for(let i = 0; i<db.length; i++){
-        if(JSON.parse(fs.readFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${db[i]}`)).prevUrl === req.body.url){
-            target = JSON.parse(fs.readFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${db[i]}`)).shortUrl;
+        if(JSON.parse(fs.readFileSync(`./back/db/${db[i]}`)).prevUrl === req.body.url){
+            target = JSON.parse(fs.readFileSync(`./back/db/${db[i]}`)).shortUrl;
             break;
         }
     }
@@ -21,7 +21,7 @@ router.post('/', (req, res, next)=>{
     }
     else {
     let urlData = new Db(prevUrl, `http://localhost:${port}/${fileId}`);
-    fs.writeFileSync(`C:/Users/amitn/cyber4s/url-shortener/back/db/${fileId}.json`, JSON.stringify(urlData));
+    fs.writeFileSync(`./back/db/${fileId}.json`, JSON.stringify(urlData));
     res.json(urlData.shortUrl);
     res.end();
     }
