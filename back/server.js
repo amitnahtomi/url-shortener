@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 const fs = require('fs');
 app.use(express.json());
@@ -34,8 +34,7 @@ app.use('/:id', (req, res, next)=>{
     }
     res.end();
 })
-app.use('/', errorHandler);
-
+app.use('/', errorHandler);  
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
   });
