@@ -20,19 +20,20 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     color: cadetblue;
 }
-#submit {
-    height: 60px;
-    width: 180px;
+
+.buttons {
+    color: chocolate;
+    background-color: cadetblue;
+    border: 8px solid cadetblue;
+    border-radius: 10px;
     font-size: 20px;
-    background-color: cornflowerblue;
+    font-family: Arial, Helvetica, sans-serif;
 }
-#statistic {
-    height: 40px;
-    width: 100px;
-    background-color: cornflowerblue;
-    margin-top: 30px;
-    margin-bottom: 20px;
+
+.buttons:hover {
+    cursor: pointer;
 }
+
 #shortUrl {
     color: darkcyan;
     font-size: 30px;
@@ -43,7 +44,4 @@ h1 {
     color: darkcyan;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-}
-button:hover {
-    cursor: pointer;
 }
